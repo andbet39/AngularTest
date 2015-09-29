@@ -1,0 +1,13 @@
+	
+  <div id="content">
+  	<input type="text" class="input-box_text" placeholder="Message" ng-model="newMessage" ng-enter="send(newMessage)">
+	<div class="message-list" height-bind  >
+			<div ng-repeat="message in messages">
+				<p>{{message.content}}</p>
+
+			</div>
+	</div>
+</div>
+
+
+ 

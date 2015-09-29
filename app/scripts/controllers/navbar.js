@@ -10,10 +10,9 @@
 angular.module('angularAirApp')
   .controller('NavbarCtrl', function ($rootScope,$scope,User,Auth) {
 
-
-  		Auth.ensureCurrentUser(function(){
-  			$scope.currentUser=Auth.currentUser;
-  		});
+		Auth.ensureCurrentUser(function(){
+ 			$scope.currentUser=Auth.currentUser;
+ 		});
 
 		$rootScope.$watch('islogged', function(newValue, oldValue) {
  			$scope.isLoggedin=newValue;
@@ -24,10 +23,10 @@ angular.module('angularAirApp')
  			}
  		});
 
-  		$scope.isLoggedin=$rootScope.islogged=User.isAuthenticated();
+ 		$scope.isLoggedin=$rootScope.islogged=User.isAuthenticated();
 
-  		$scope.logout = function  () {
-  			Auth.logout();  			
-  		};
+ 		$scope.logout = function  () {
+ 			Auth.logout();  			
+ 		};
 
-  });
+ });

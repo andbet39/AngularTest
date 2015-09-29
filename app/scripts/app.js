@@ -18,12 +18,30 @@ angular
     'ngTouch',
     'formly', 
     'formlyBootstrap',
-    'lbServices'
+    'lbServices',
+    'luegg.directives'
   ])
 
-  .config(function(LoopBackResourceProvider) {
+  .config(function(LoopBackResourceProvider,$httpProvider) {
  
    LoopBackResourceProvider.setUrlBase('http://localhost:3000/api');
+
+    // Inside app config block
+    $httpProvider.interceptors.push(function($q, $location, LoopBackAuth) {
+      return {
+        responseError: function(rejection) {
+          if (rejection.status === 401) {
+            //Now clearing the loopback values from client browser for safe logout...
+            LoopBackAuth.clearUser();
+            LoopBackAuth.clearStorage();
+            $location.nextAfterLogin = $location.path();
+            $location.path('/login');
+          }
+          return $q.reject(rejection);
+        }
+      };
+    });
+ 
   })
 
   .config(function ($routeProvider) {
@@ -38,11 +56,6 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/adminproduct', {
-        templateUrl: 'views/adminproduct.html',
-        controller: 'AdminproductCtrl',
-        controllerAs: 'adminproduct'
-      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'AuthCtrl',
@@ -50,6 +63,11 @@ angular
       .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'AuthCtrl',
+      })
+      .when('/chat', {
+        templateUrl: 'views/chat.html',
+        controller: 'ChatCtrl',
+        controllerAs: 'chat'
       })
       .otherwise({
         redirectTo: '/'

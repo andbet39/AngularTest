@@ -1099,13 +1099,13 @@ module.factory(
 
 /**
  * @ngdoc object
- * @name lbServices.Product
- * @header lbServices.Product
+ * @name lbServices.Message
+ * @header lbServices.Message
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `Product` model.
+ * A $resource object for interacting with the `Message` model.
  *
  * ## Example
  *
@@ -1115,17 +1115,17 @@ module.factory(
  *
  */
 module.factory(
-  "Product",
+  "Message",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
     var R = Resource(
-      urlBase + "/Products/:id",
+      urlBase + "/messages/:id",
       { 'id': '@id' },
       {
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#create
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#create
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1152,18 +1152,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Product` object.)
+         * This usually means the response is a `Message` object.)
          * </em>
          */
         "create": {
-          url: urlBase + "/Products",
+          url: urlBase + "/messages",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#createMany
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#createMany
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1190,19 +1190,19 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Product` object.)
+         * This usually means the response is a `Message` object.)
          * </em>
          */
         "createMany": {
           isArray: true,
-          url: urlBase + "/Products",
+          url: urlBase + "/messages",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#upsert
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#upsert
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1229,18 +1229,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Product` object.)
+         * This usually means the response is a `Message` object.)
          * </em>
          */
         "upsert": {
-          url: urlBase + "/Products",
+          url: urlBase + "/messages",
           method: "PUT"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#exists
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#exists
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1265,14 +1265,14 @@ module.factory(
          *  - `exists` – `{boolean=}` - 
          */
         "exists": {
-          url: urlBase + "/Products/:id/exists",
+          url: urlBase + "/messages/:id/exists",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#findById
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#findById
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1296,18 +1296,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Product` object.)
+         * This usually means the response is a `Message` object.)
          * </em>
          */
         "findById": {
-          url: urlBase + "/Products/:id",
+          url: urlBase + "/messages/:id",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#find
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#find
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1329,19 +1329,19 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Product` object.)
+         * This usually means the response is a `Message` object.)
          * </em>
          */
         "find": {
           isArray: true,
-          url: urlBase + "/Products",
+          url: urlBase + "/messages",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#findOne
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#findOne
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1363,18 +1363,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Product` object.)
+         * This usually means the response is a `Message` object.)
          * </em>
          */
         "findOne": {
-          url: urlBase + "/Products/findOne",
+          url: urlBase + "/messages/findOne",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#updateAll
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#updateAll
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1401,14 +1401,14 @@ module.factory(
          * This method returns no data.
          */
         "updateAll": {
-          url: urlBase + "/Products/update",
+          url: urlBase + "/messages/update",
           method: "POST"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#deleteById
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#deleteById
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1431,14 +1431,14 @@ module.factory(
          * This method returns no data.
          */
         "deleteById": {
-          url: urlBase + "/Products/:id",
+          url: urlBase + "/messages/:id",
           method: "DELETE"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#count
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#count
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1463,14 +1463,14 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "count": {
-          url: urlBase + "/Products/count",
+          url: urlBase + "/messages/count",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#prototype$updateAttributes
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#prototype$updateAttributes
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1496,18 +1496,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Product` object.)
+         * This usually means the response is a `Message` object.)
          * </em>
          */
         "prototype$updateAttributes": {
-          url: urlBase + "/Products/:id",
+          url: urlBase + "/messages/:id",
           method: "PUT"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#createChangeStream
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#createChangeStream
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1537,7 +1537,46 @@ module.factory(
          *  - `changes` – `{ReadableStream=}` - 
          */
         "createChangeStream": {
-          url: urlBase + "/Products/change-stream",
+          url: urlBase + "/messages/change-stream",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Message#sendmessage
+         * @methodOf lbServices.Message
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `content` – `{string=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `success` – `{boolean=}` - 
+         */
+        "sendmessage": {
+          url: urlBase + "/messages/sendmessage",
           method: "POST"
         },
       }
@@ -1547,8 +1586,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#updateOrCreate
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#updateOrCreate
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1575,15 +1614,15 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Product` object.)
+         * This usually means the response is a `Message` object.)
          * </em>
          */
         R["updateOrCreate"] = R["upsert"];
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#update
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#update
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1613,8 +1652,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#destroyById
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#destroyById
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1640,8 +1679,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.Product#removeById
-         * @methodOf lbServices.Product
+         * @name lbServices.Message#removeById
+         * @methodOf lbServices.Message
          *
          * @description
          *
@@ -1668,13 +1707,13 @@ module.factory(
 
     /**
     * @ngdoc property
-    * @name lbServices.Product#modelName
-    * @propertyOf lbServices.Product
+    * @name lbServices.Message#modelName
+    * @propertyOf lbServices.Message
     * @description
     * The name of the model represented by this $resource,
-    * i.e. `Product`.
+    * i.e. `Message`.
     */
-    R.modelName = "Product";
+    R.modelName = "Message";
 
 
     return R;

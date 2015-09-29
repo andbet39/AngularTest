@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="angularAirApp">
-    <nav class="navbar navbar-default  navbar-fixed-top" role="navigation" ng-controller="NavbarCtrl">
-        <div class="container-fluid">
+  <body ng-app="angularAirApp"  height-bind height-value="containerHeight">
+
+   <nav class="navbar navbar-default  navbar-fixed-top" role="navigation" ng-controller="NavbarCtrl">
+        <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -28,6 +29,12 @@
                 <a class="navbar-brand" href="/">Loopback test</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                 <ul class="nav navbar-nav ">
+                    
+                        <li><a ng-href="#/chat">Chat</a></li>
+                   
+                    
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     
                         <li ng-if="!isLoggedin"><a ng-href="#/login">Login</a></li>
@@ -35,20 +42,10 @@
                         <li ng-if="isLoggedin" ><a href ng-click="logout()">Logout {{currentUser.firstName}}</a></li>
                     
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            </div>
+        </div>
     </nav>
-
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
-    </div>
-
+        <div ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -61,33 +58,36 @@
        ga('send', 'pageview');
     </script>
 
+        <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/api-check/dist/api-check.js"></script>
     <script src="bower_components/angular-formly/dist/formly.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-scroll-glue/src/scrollglue.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/adminproduct.js"></script>
         <script src="scripts/services/lb-services.js"></script>
         <script src="scripts/controllers/authcontroller.js"></script>
         <script src="scripts/controllers/navbar.js"></script>
         <script src="scripts/services/auth.js"></script>
+        <script src="scripts/services/socket.js"></script>
+        <script src="scripts/controllers/chat.js"></script>
         <!-- endbuild -->
 </body>
 </html>

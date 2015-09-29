@@ -10,18 +10,13 @@
 angular.module('angularAirApp')
   .controller('AuthCtrl', function ($rootScope,$scope,$location,User,Auth) {
 
-	$scope.signup = function(newUser){
-  	 	User.create(newUser).$promise.then(function (user) {
-  	 		User.login(newUser).$promise.then(function (user) {
-  	 			$location.path('/');
-  	 			$rootScope.islogged=true;
-  	 		});
-  	 	})
-  	 }
+	   $scope.signup = function(newUser){
+       Auth.signup(newUser);
+     };
 
   	 $scope.login = function(user){
   	 	Auth.login(user);
-  	 }
+  	 };
 
 
   	 $scope.loginFields = [{

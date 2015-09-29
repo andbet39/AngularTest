@@ -11,12 +11,25 @@ angular.module('angularAirApp')
   .factory('Auth', function ($rootScope,User,$location) {
 
   	var self ={
+      signup:function(data){
+        User.create(data).$promise.then(function () {
+          User.login(data).$promise.then(function () {
+            $rootScope.islogged=true;
+            $location.path('/');
+          });
+        });
+      },
   		login: function(user){
   			User.login(user,function(data){
   				self.currentUser=data.user;
   				console.log(self.currentUser);
   				$rootScope.islogged=true;
-  				$location.path('/');
+          console.log($location.nextAfterLogin);
+          if($location.nextAfterLogin === null) {
+            $location.path('/');
+          }else{
+             $location.path($location.nextAfterLogin);
+          } 				
   			});
   		},
   		logout: function(){
@@ -28,7 +41,7 @@ angular.module('angularAirApp')
   		},
   		ensureCurrentUser: function(cb){
   			if(User.isAuthenticated() && self.currentUser == null){
-				$rootScope.islogged=true;  				
+  				$rootScope.islogged=true;  				
   				User.getCurrent(function(data){
   					self.currentUser = data;
   					cb();

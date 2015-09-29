@@ -7,12 +7,14 @@
 		<table class="table table-bordered">
    			<thead>
    				<td>Name</td>   				
-   				<td>Price</td>
+               <td>Price</td>
+               <td></td>
    			</thead>
    			<tbody>
    				<tr ng-repeat="product in products">
    					<td>{{product.title}}</td>
-   					<td>{{product.price}}</td>
+                  <td>{{product.price}}</td>
+                  <td><button ng-click="delete($index)" class="btn-danger">Delete</button></td>
    				</tr>
    			</tbody>
 

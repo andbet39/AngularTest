@@ -9,5 +9,6 @@
  */
 angular.module('angularAirApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.prova = "Testa de cazzo";
-  });
+		 
+	
+   });
