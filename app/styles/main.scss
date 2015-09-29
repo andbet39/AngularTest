@@ -1,3 +1,17 @@
-body{
-  padding-top:70px;
+*      {margin:0; padding:0;}
+body   {background:#fff; 
+      position:absolute; 
+      width:100%; 
+      height:100%;
+      padding-top:50px;
+      }
+#main  {background:#888; position:absolute; top:50px; bottom:60px; width:100%;}
+/*#head  {background:#f8f; position:absolute; width:100%; height:50px; overflow:auto;}*/
+#left  {background:#000000; position:absolute; width:250px; height:100%; overflow:hidden;}
+#right {background:#f8f8f8; margin-left:250px; height:100%; overflow-y:scroll;}
+#foot  {background:#33333; position:absolute; bottom:0; width:100%; height:60px; overflow:auto;}
+
+.message-list{
+ padding-left:30px;
+
 }

@@ -1,13 +1,16 @@
-	
-  <div id="content">
-  	<input type="text" class="input-box_text" placeholder="Message" ng-model="newMessage" ng-enter="send(newMessage)">
-	<div class="message-list" height-bind  >
+
+	<div id="main">
+		<div id="left">Left div</div>
+		<div id="right" scroll-glue>
+		<div class="message-list"  >
 			<div ng-repeat="message in messages">
 				<p>{{message.content}}</p>
-
 			</div>
+		</div>
+		</div>
+
 	</div>
+
+<div id="foot">
+	<input type="text" class="form-control" placeholder="Message" ng-model="newMessage" ng-enter="send(newMessage)">
 </div>
-
-
- 
