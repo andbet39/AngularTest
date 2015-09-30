@@ -8,17 +8,18 @@
  * Controller of the angularAirApp
  */
 angular.module('angularAirApp')
-  .controller('ChatCtrl', function (Socket,$scope,Message) {
+  .controller('ChatCtrl', function (Socket,$scope,Message,User) {
   		
-  		$scope.messages = Message.find().$promise.then(
+  		$scope.messages = Message.getmessages().$promise.then(
   				function(data){
-  				$scope.messages=data;
+            console.log(data.messages);  
+  				$scope.messages=data.messages;
   			console.log('loaded old message');
   		});
 
   		$scope.send = function(mess){
   			console.log(mess);
-  			Message.sendmessage({'content':mess}).$promise.then(function(){
+  			Message.sendmessagenew({'content':mess,'user_id':User.getCurrentId() ,'room_id':1}).$promise.then(function(){
   				console.log("message sent");
   				$scope.newMessage='';
   			});	
@@ -26,7 +27,6 @@ angular.module('angularAirApp')
 
   		Socket.on('message',function(message){
   			$scope.messages.push(message);
- 
   			console.log('message received : ' + message.content);
   		});
   });
@@ -45,15 +45,3 @@ angular.module('angularAirApp').directive('ngEnter', function () {
     };
 });
 
-angular.module('angularAirApp').directive('heightBind', function() {
-  return {
-    scope: {
-      heightValue: '='
-    },
-    link: function($scope, $element) {
-      $scope.$watch(function() {
-        $scope.heightValue = $element.height();
-      });
-    }
-  }
-})

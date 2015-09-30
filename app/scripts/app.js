@@ -19,7 +19,8 @@ angular
     'formly', 
     'formlyBootstrap',
     'lbServices',
-    'luegg.directives'
+    'luegg.directives',
+    'angularMoment'
   ])
 
   .config(function(LoopBackResourceProvider,$httpProvider) {
@@ -43,6 +44,7 @@ angular
     });
  
   })
+
 
   .config(function ($routeProvider) {
     $routeProvider

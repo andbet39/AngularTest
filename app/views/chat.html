@@ -2,15 +2,21 @@
 	<div id="main">
 		<div id="left">Left div</div>
 		<div id="right" scroll-glue>
-		<div class="message-list"  >
-			<div ng-repeat="message in messages">
-				<p>{{message.content}}</p>
-			</div>
+		<div class="message-wrap col-lg-12"  >
+		  <div class="media msg" ng-repeat="message in messages">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 32px; height: 32px;" src="http://lorempixel.com/200/200/people">
+                    </a>
+                    <div class="media-body">
+                         <div class="media-heading msg-name">{{message.user.firstName}} {{message.user.lastName}} <span am-time-ago="message.posted_at"></span> </div>
+                        <small class="col-lg-10">{{message.content}}</small>
+                    </div>
+                </div>
 		</div>
 		</div>
 
 	</div>
 
 <div id="foot">
-	<input type="text" class="form-control" placeholder="Message" ng-model="newMessage" ng-enter="send(newMessage)">
+	<textarea class="send-message form-control" placeholder="Message" ng-model="newMessage" ng-enter="send(newMessage)"> </textarea>
 </div>
