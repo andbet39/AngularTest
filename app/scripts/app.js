@@ -66,10 +66,15 @@ angular
         templateUrl: 'views/register.html',
         controller: 'AuthCtrl',
       })
-      .when('/chat', {
+      .when('/chat/:roomid', {
         templateUrl: 'views/chat.html',
         controller: 'ChatCtrl',
         controllerAs: 'chat'
+      })
+      .when('/room', {
+        templateUrl: 'views/room.html',
+        controller: 'RoomCtrl',
+        controllerAs: 'room'
       })
       .otherwise({
         redirectTo: '/'

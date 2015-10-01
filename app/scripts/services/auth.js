@@ -8,23 +8,25 @@
  * Service in the angularAirApp.
  */
 angular.module('angularAirApp')
-  .factory('Auth', function ($rootScope,User,$location) {
+  .factory('Auth', function ($rootScope,ChatUser,$location) {
 
   	var self ={
       signup:function(data){
-        User.create(data).$promise.then(function () {
-          User.login(data).$promise.then(function () {
+        ChatUser.create(data).$promise.then(function () {
+          ChatUser.login(data).$promise.then(function (data) {
+            self.currentUser=data.user;
+
             $rootScope.islogged=true;
             $location.path('/');
           });
         });
       },
   		login: function(user){
-  			User.login(user,function(data){
+  			ChatUser.login(user,function(data){
   				self.currentUser=data.user;
   				console.log(self.currentUser);
   				$rootScope.islogged=true;
-          console.log($location.nextAfterLogin);
+          
           if($location.nextAfterLogin === null) {
             $location.path('/');
           }else{
@@ -33,16 +35,16 @@ angular.module('angularAirApp')
   			});
   		},
   		logout: function(){
-  			User.logout(function(){
+  			ChatUser.logout(function(){
   				$location.path('/');
   				$rootScope.islogged=false;
   				self.currentUser=null;
   			});
   		},
   		ensureCurrentUser: function(cb){
-  			if(User.isAuthenticated() && self.currentUser == null){
+  			if(ChatUser.isAuthenticated() && self.currentUser == null){
   				$rootScope.islogged=true;  				
-  				User.getCurrent(function(data){
+  				ChatUser.getCurrent(function(data){
   					self.currentUser = data;
   					cb();
   				});
