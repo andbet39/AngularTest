@@ -19,12 +19,20 @@ angular.module('angularAirApp')
         Room.findById({'id': $routeParams.roomid}, 
           function(room) {
             $scope.selectedRoom = room;
-            Message.getmessages({
+
+            Message.find({
+                filter: {where:{roomId: room.id},include:['user']}
+              },function(data) {
+                $scope.messages[room.id] = data;
+                Socket.emit('subscribe', room.id);
+            });
+            
+            /*Message.getmessages({
                 'room_id': room.id
             }, function(data) {
                 $scope.messages[room.id] = data.messages;
                 Socket.emit('subscribe', room.id);
-            });
+            });*/
         });
 
         
@@ -35,14 +43,23 @@ angular.module('angularAirApp')
             }, function(room) {
                 if (!$scope.messages[room.id]) {
                     console.log(room.name + "first join");
-                    Message.getmessages({
+
+                        Message.find({
+                filter: {where:{roomId: room.id},include:['user']}
+                        },function(data){  
+                            $scope.messages[room.id] = data;
+                            Socket.emit('subscribe', room.id);
+                      });
+            
+
+                    /*Message.getmessages({
                             'room_id': room.id
                         },
                         function(data) {
                             Socket.emit('subscribe', room_id);
                             $scope.messages[room_id] = data.messages;
                             console.log($scope.messages);
-                        });
+                        });*/
                 } else {
                     console.log(room.name + "already joined");
                 }
