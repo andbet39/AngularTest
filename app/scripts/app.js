@@ -77,6 +77,6 @@ angular
         controllerAs: 'room'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/#/'
       });
   });

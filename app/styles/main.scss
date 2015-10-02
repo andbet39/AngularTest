@@ -1,5 +1,5 @@
 *      {margin:0; padding:0;}
-body   {background:#fff; 
+body   {background:#14232D; 
       position:absolute; 
       width:100%; 
       height:100%;
@@ -123,6 +123,19 @@ span {
     }
     
 
+.lead{
+  text-align: center;
 
- 
+}
+ .jumbotron h1, .jumbotron .h1{
+    color: #14232D;
+    text-align: center;
+ }
     
+.room_panel{
+  color:#000000;
+}
+
+.btn-go{
+  margin-top: 30px;
+}

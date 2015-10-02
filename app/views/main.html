@@ -1,33 +1,15 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="container">
+<br><br>
+    <div class="jumbotron">
+    <p class="lead">
+        
+          <h1>Welcome to Chat by</h1>
+          </p>
+      <div class="text-center">
+
+        <img src="https://www.codetutorial.io/wordpress/wp-content/uploads/2015/07/logoCodenew.png"><br>
+      <a class="btn btn-lg btn-success btn-go" ng-href="#/room">Chat Rooms!</a>
+      </div>
+    </div>
 </div>
 
-<div class="row">
-        <div class="col-sm-6 col-md-4" ng-repeat="product in products">
-                        <div class="thumbnail" >
-                            <img src="{{product.imageurl}}" class="img-responsive">
-                            <div class="caption">
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-6">
-                                        <h3>{{product.title}}</h3>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6 price">
-                                        <h3>
-                                            <label>${{product.price}}</label></h3>
-                                    </div>
-                                </div>
-                                <p>{{product.description}}</p>
-                                <div class="row">
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <a href="/addProduct/{{$product.id}}" class="btn btn-success btn-product"><span class="fa fa-shopping-cart"></span> Buy</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-</div>
